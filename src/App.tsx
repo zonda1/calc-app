@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Input from './components/Input/Input';
@@ -54,14 +55,15 @@ function App() {
     const value = e.target.value;
 
     const handleNullButton = () => {
-      // setState(state + 0);
-      setState((state) => (state.startsWith('0') ? state + '' : state + '0'));
+      setState(`${(state + value).replace(/^00/, '')}`);
     };
+
     const handleEraseAllNumButton = () => {
       setState('');
       setStoredNum('');
       setMathOper('');
     };
+
     const handleDotButton = () => {
       setState((state) => (state.includes('.') ? state + '' : state + '.'));
     };
@@ -111,13 +113,13 @@ function App() {
           setState(String(+state + +storedNum));
           break;
         case 'minus':
-          setState(String(+state - +storedNum));
+          setState(String(+storedNum - +state));
           break;
         case 'multiply':
           setState(String(+state * +storedNum));
           break;
         case 'divide':
-          setState(String(+state / +storedNum));
+          setState(!+state ? 'error' : String(+storedNum / +state));
           break;
         default:
           break;
