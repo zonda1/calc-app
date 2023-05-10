@@ -27,7 +27,7 @@ const PlusMinusPanel = ({
         {'+/-'}
       </Button>
       <Button value='eraser' numBgColor={'#8a99d1'} onClick={eraseButtonClick}>
-        {'>'}
+        {'<'}
       </Button>
     </StylePlusMinusPanel>
   );

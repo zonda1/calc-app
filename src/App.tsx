@@ -164,7 +164,7 @@ function App() {
     position: absolute;
     background-color: #fff;
     left: 72px;
-    top: 22%;
+    top: 26%;
     width: 250px;
     height: 2px;
     z-index: 2;
