@@ -1,20 +1,21 @@
 import styled from 'styled-components';
-import React from 'react';
+
 
 type ButtonProps={
-    num?:boolean,
+    numBgColor?:string,
+    numColor?:boolean
     value?:string,
     onClick?:(e:any)=>void,
     children:number|string
 }
 
 export const StyledButton=styled.button<ButtonProps>`
-background:${props=>props.num?'#8FBC8F':'#E9967A'};
-color:${props=>props.num?'#483D8B':'white'};
+background:${props=>props.numBgColor ||'#c3cae3'};
+color:${props=>props.numColor?'#483D8B':'#fff'};
 font-size:24px;
-padding:10px;
-border:2px solid #DCDCDC;
-border-radius: 2px;
+padding:5px;
+border:2px solid #636161;
+border-radius: 3px;
 `;
 
 

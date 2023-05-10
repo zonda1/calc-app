@@ -22,7 +22,7 @@ const NumberPanel = ({buttonClick}:NumberPanelProps):JSX.Element => {
     return (
        <StyleNumberPanel>
               {nums.map((el, i) => (
-              <Button onClick={buttonClick} num key={i} value={String(el)}>
+              <Button onClick={buttonClick} numColor key={i} value={String(el)}>
                 {el}
               </Button>
             ))}

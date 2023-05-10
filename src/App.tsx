@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Input from './components/Input/Input';
@@ -9,20 +8,21 @@ import PlusMinusPanel from './components/PlusMinusPanel/PlusMinusPanel';
 import GlobalStyles from './global';
 
 const Wrapper = styled.div`
-  max-width: 700px;
+  max-width: 400px;
   margin: 40px auto;
 `;
 
 const MainPanel = styled.div`
+  position: relative;
   display: grid;
   row-gap: 5px;
   column-gap: 5px;
   justify-content: center;
-  grid-template-columns: repeat(5, 100px);
+  grid-template-columns: repeat(5, 50px);
   grid-template-rows: 100px repeat(4, 50px);
   background-color: #fffacd;
   border: 3px solid #000;
-  padding: 15px;
+  padding: 50px 30px 30px;
 `;
 
 function App() {
@@ -135,7 +135,7 @@ function App() {
         case '-':
           handleMinusButton();
           break;
-        case '*':
+        case '\u00D7':
           handleMultiplyButton();
           break;
         case '/':
@@ -150,11 +150,33 @@ function App() {
     }
   };
 
+  const Title = styled.h1`
+    font-size: 35px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 5px;
+    left: 25%;
+    letter-spacing: 5px;
+  `;
+
+  const Strip = styled.div`
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    left: 72px;
+    top: 22%;
+    width: 250px;
+    height: 2px;
+    z-index: 2;
+  `;
+
   return (
     <>
       <GlobalStyles />
       <Wrapper>
         <MainPanel>
+          <Title>my calc</Title>
+          <Strip></Strip>
           <Input type='text' value={state} readOnly></Input>
 
           <NumberPanel buttonClick={handleNumButton} />

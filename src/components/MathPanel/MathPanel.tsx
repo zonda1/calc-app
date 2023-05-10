@@ -10,17 +10,27 @@ const StyleMathPanel = styled.div`
   grid-template-rows: repeat(3, 1fr);
   row-gap: 5px;
   column-gap: 5px;
+  button:last-child {
+    grid-area: 2/2/4/3;
+  }
 `;
 
-type MathPanelProps={
-  mathPanelButtonClick:(e:React.ChangeEvent<HTMLInputElement>)=>void
-}
+type MathPanelProps = {
+  mathPanelButtonClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-const MathPanel = ({mathPanelButtonClick}:MathPanelProps) => {
+const MathPanel = ({ mathPanelButtonClick }: MathPanelProps) => {
   return (
     <StyleMathPanel>
       {mathSymbols.map((el, i) => (
-        <Button onClick={mathPanelButtonClick} value={el} key={i}>{el}</Button>
+        <Button
+          onClick={mathPanelButtonClick}
+          numBgColor={el === '=' ? '#0c07fa' : '#717275'}
+          value={el}
+          key={i}
+        >
+          {el}
+        </Button>
       ))}
     </StyleMathPanel>
   );

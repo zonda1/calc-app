@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 
@@ -20,10 +19,14 @@ const PlusMinusPanel = ({
 }: PlusMinusPanelProps) => {
   return (
     <StylePlusMinusPanel>
-      <Button value='minus-toggler' onClick={plusMinusButtonClick}>
+      <Button
+        value='minus-toggler'
+        numBgColor={'#8a99d1'}
+        onClick={plusMinusButtonClick}
+      >
         {'+/-'}
       </Button>
-      <Button value='eraser' onClick={eraseButtonClick}>
+      <Button value='eraser' numBgColor={'#8a99d1'} onClick={eraseButtonClick}>
         {'>'}
       </Button>
     </StylePlusMinusPanel>

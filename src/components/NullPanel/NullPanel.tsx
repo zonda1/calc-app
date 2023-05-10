@@ -18,7 +18,7 @@ const NullPanel = ({ nullPanelButtonClick }: NullPanelProps): JSX.Element => {
   return (
     <StyleNullPanel>
       {nullArr.map((el, i) => (
-        <Button onClick={nullPanelButtonClick} value={el} key={i}>
+        <Button value={el} key={i} numColor={el==='C'?false:true} numBgColor={el==='C'?'#fa0718':''} onClick={nullPanelButtonClick}>
           {el}
         </Button>
       ))}
